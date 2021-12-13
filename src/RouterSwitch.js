@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import App from "./App.js";
 import Shop from "./Shop.js";
 import Nav from "./Nav.js";
+import Cart from "./Cart.js";
 
 const RouterSwitch = () => {
   const [pokemon, setPokemon] = useState([]);
   const [cartItems, setCartItems] = useState(0);
   const [shoppingCart, setShoppingCart] = useState([]);
+  const [pokemonAmount, setPokemonAmount] = useState(0);
 
   useEffect(() => {
     fetchPokemon();
@@ -107,15 +109,20 @@ const RouterSwitch = () => {
   };
 
   const handleCart = () => {
-    setCartItems(cartItems + 1);
+    setCartItems(parseInt(cartItems) + parseInt(pokemonAmount));
   };
 
-  const handleShoppingCart = (item) => {
+  const handleChange = (e) => {
+    setPokemonAmount(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const handleShoppingCart = (e, item) => {
     setShoppingCart((oldArray) => [
       ...oldArray,
       {
         pokemonName: item.name,
-        quantity: "",
+        quantity: pokemonAmount,
       },
     ]);
     console.log(shoppingCart);
@@ -132,10 +139,12 @@ const RouterSwitch = () => {
             <Shop
               pokemon={pokemon}
               handleCart={handleCart}
+              handleChange={handleChange}
               handleShoppingCart={handleShoppingCart}
             />
           }
         />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );

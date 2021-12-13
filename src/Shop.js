@@ -1,10 +1,5 @@
 function Shop(props) {
-  const {
-    pokemon,
-    handleCart,
-
-    handleShoppingCart,
-  } = props;
+  const { pokemon, handleCart, handleChange, handleShoppingCart } = props;
 
   return (
     <div className="App">
@@ -15,10 +10,12 @@ function Shop(props) {
             <img src={item.pic} alt="bulbasaur" />
             <div className="itemInfo">
               <p>{item.name}</p>
+
+              <input type="number" onChange={(e) => handleChange(e)} />
               <button
-                onClick={() => {
+                onClick={(e) => {
                   handleCart();
-                  handleShoppingCart(item);
+                  handleShoppingCart(e, item);
                 }}
               >
                 Add to Cart

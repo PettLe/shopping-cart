@@ -13,7 +13,7 @@ const Nav = (props) => {
         <Link to="/shop">
           <li>Shop</li>
         </Link>
-        <Link to="/shop">
+        <Link to="/cart">
           <li className="cart">
             <span class="material-icons-outlined">shopping_cart</span>
             {cartItems}
