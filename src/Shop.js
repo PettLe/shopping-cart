@@ -1,5 +1,10 @@
 function Shop(props) {
-  const { pokemon, handleCart } = props;
+  const {
+    pokemon,
+    handleCart,
+
+    handleShoppingCart,
+  } = props;
 
   return (
     <div className="App">
@@ -8,8 +13,17 @@ function Shop(props) {
         {pokemon.map((item) => (
           <div className="card">
             <img src={item.pic} alt="bulbasaur" />
-            <p>{item.name}</p>
-            <button onClick={handleCart}>Add to Cart</button>
+            <div className="itemInfo">
+              <p>{item.name}</p>
+              <button
+                onClick={() => {
+                  handleCart();
+                  handleShoppingCart(item);
+                }}
+              >
+                Add to Cart
+              </button>
+            </div>
           </div>
         ))}
       </div>

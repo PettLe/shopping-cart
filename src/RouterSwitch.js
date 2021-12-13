@@ -7,6 +7,7 @@ import Nav from "./Nav.js";
 const RouterSwitch = () => {
   const [pokemon, setPokemon] = useState([]);
   const [cartItems, setCartItems] = useState(0);
+  const [shoppingCart, setShoppingCart] = useState([]);
 
   useEffect(() => {
     fetchPokemon();
@@ -109,6 +110,17 @@ const RouterSwitch = () => {
     setCartItems(cartItems + 1);
   };
 
+  const handleShoppingCart = (item) => {
+    setShoppingCart((oldArray) => [
+      ...oldArray,
+      {
+        pokemonName: item.name,
+        quantity: "",
+      },
+    ]);
+    console.log(shoppingCart);
+  };
+
   return (
     <BrowserRouter>
       <Nav cartItems={cartItems} />
@@ -116,7 +128,13 @@ const RouterSwitch = () => {
         <Route path="/" element={<App />} />
         <Route
           path="/shop"
-          element={<Shop pokemon={pokemon} handleCart={handleCart} />}
+          element={
+            <Shop
+              pokemon={pokemon}
+              handleCart={handleCart}
+              handleShoppingCart={handleShoppingCart}
+            />
+          }
         />
       </Routes>
     </BrowserRouter>
