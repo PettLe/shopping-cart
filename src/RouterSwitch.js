@@ -11,6 +11,9 @@ const RouterSwitch = () => {
   const [shoppingCart, setShoppingCart] = useState([]);
   const [pokemonAmount, setPokemonAmount] = useState(0);
 
+  /* INDIVIDUAL STATES FOR EACH POKEMON? Containing the amount. Then render (in the cart) the pokemon, if the amount
+  is greater than 0. */
+
   useEffect(() => {
     fetchPokemon();
   }, []);
@@ -128,13 +131,18 @@ const RouterSwitch = () => {
     console.log(shoppingCart);
   };
 
+  const clearCart = () => {
+    setShoppingCart([]);
+    setCartItems(0);
+  };
+
   return (
     <BrowserRouter>
       <Nav cartItems={cartItems} />
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/shopping-cart" element={<App />} />
         <Route
-          path="/shop"
+          path="/shopping-cart/shop"
           element={
             <Shop
               pokemon={pokemon}
@@ -144,12 +152,13 @@ const RouterSwitch = () => {
             />
           }
         />
-        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/shopping-cart/cart"
+          element={<Cart clearCart={clearCart} shoppingCart={shoppingCart} />}
+        />
       </Routes>
     </BrowserRouter>
   );
 };
 
 export default RouterSwitch;
-
-/*Cools story bro */

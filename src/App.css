@@ -5,6 +5,7 @@ body {
 .App {
   width: 80%;
   min-height: 85%;
+  margin: 10vw;
 }
 
 .shopItems {
@@ -17,8 +18,13 @@ nav {
   width: 80%;
   height: 15%;
   display: flex;
+  padding-left: 3vw;
   justify-content: space-between;
   align-items: center;
+}
+
+nav h1 {
+  text-shadow: 2px 2px #ff0000;
 }
 
 a {
@@ -59,4 +65,22 @@ ul {
 
 .cart {
   font-size: x-large;
+}
+
+.cartTitles {
+  display: flex;
+  width: 25%;
+  justify-content: space-between;
+  font-weight: 800;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  width: 25%;
+}
+
+.buttons {
+  display: flex;
+  gap: 2vw;
 }

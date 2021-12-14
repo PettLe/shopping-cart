@@ -5,15 +5,15 @@ const Nav = (props) => {
 
   return (
     <nav className="nav-bar">
-      <h2>Poké Pet Shop</h2>
+      <h1>Poké Pet Shop</h1>
       <ul>
-        <Link to="/">
+        <Link to="/shopping-cart">
           <li>Home</li>
         </Link>
-        <Link to="/shop">
+        <Link to="/shopping-cart/shop">
           <li>Shop</li>
         </Link>
-        <Link to="/cart">
+        <Link to="/shopping-cart/cart">
           <li className="cart">
             <span class="material-icons-outlined">shopping_cart</span>
             {cartItems}

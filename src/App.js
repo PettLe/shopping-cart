@@ -13,6 +13,9 @@ function App() {
         You are in the right place! <br />
         (Every purchase includes poké ball.)
       </p>
+      <footer>
+        <p>&copy; Petteri Leino 2021</p>
+      </footer>
     </div>
   );
 }

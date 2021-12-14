@@ -9,7 +9,7 @@ function Shop(props) {
           <div className="card">
             <img src={item.pic} alt="bulbasaur" />
             <div className="itemInfo">
-              <p>{item.name}</p>
+              <p>{item.name.toUpperCase()}</p>
 
               <input type="number" onChange={(e) => handleChange(e)} />
               <button
